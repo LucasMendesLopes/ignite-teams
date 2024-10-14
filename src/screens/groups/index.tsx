@@ -35,6 +35,7 @@ export function Groups() {
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => <GroupCard title={item.title} />}
                 contentContainerStyle={groups.length === 0 && { flex: 1 }}
+                style={{ marginBottom: 32 }}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={<ListEmpty message="Que tal cadastrar a primeira turma?" />}
             />
