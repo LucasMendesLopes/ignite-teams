@@ -1,4 +1,3 @@
-import { ActivityIndicator } from "react-native"
 import * as s from "./styled"
 
 export const Loading = () => {
