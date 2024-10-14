@@ -1,6 +1,8 @@
+import { ThemeProvider } from 'styled-components/native';
+
+import theme from './src/theme';
+
 import { Groups } from '@screens';
-import { theme } from './src/theme';
-import { ThemeProvider } from 'styled-components';
 
 export default function App() {
   return (
