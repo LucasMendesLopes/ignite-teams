@@ -2,6 +2,7 @@ import { CustomButton, GroupCard, Header, Highlight, ListEmpty } from "@componen
 import * as s from "./styled"
 import { FlatList } from "react-native";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const initialGroups = [
     { id: "1", title: "Galera da Macle" },
@@ -23,6 +24,12 @@ const initialGroups = [
 
 export function Groups() {
     const [groups, setGroups] = useState(initialGroups)
+
+    const navigation = useNavigation()
+
+    const handleNewGroup = () => {
+        navigation.navigate('new')
+    }
 
     return (
         <s.Container>
@@ -47,7 +54,10 @@ export function Groups() {
                 )}
             />
 
-            <CustomButton text="Criar nova turma" />
+            <CustomButton
+                text="Criar nova turma"
+                onPress={handleNewGroup}
+            />
         </s.Container>
     );
 }

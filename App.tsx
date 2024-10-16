@@ -1,11 +1,11 @@
 import { ThemeProvider } from 'styled-components/native';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto"
 
-import theme from './src/theme';
 
-import { Groups } from '@screens';
 import { Loading } from '@components';
 import { StatusBar } from 'react-native';
+import { Routes } from './src/routes';
+import theme from '@theme';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold })
@@ -17,7 +17,7 @@ export default function App() {
         barStyle="light-content"
       />
 
-      {fontsLoaded ? <Groups /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }

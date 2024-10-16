@@ -6,7 +6,7 @@ export const Container = styled(TextInput).attrs(({ theme }) => ({
   cursorColor: theme.COLORS.GREEN_500,
 }))`
   ${({ theme }) => css`
-    width: 100%;
+    flex: 1;
     min-height: 56px;
     max-height: 56px;
     background-color: ${theme.COLORS.GRAY_700};

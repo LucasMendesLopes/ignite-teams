@@ -1,35 +1,55 @@
-import { ButtonIcon, CustomButton, CustomInput, Filter, Header, Highlight, ListEmpty, PlayerCard } from "@components"
+import {
+    ButtonIcon,
+    CustomButton,
+    CustomInput,
+    Filter,
+    Header,
+    Highlight,
+    ListEmpty,
+    PlayerCard
+} from "@components"
 import * as s from "./styled"
 import { useState } from "react"
 import { FlatList } from "react-native"
+import { useRoute } from "@react-navigation/native"
+
+const initialPlayers = [
+    "Lucas",
+    "Miguel",
+    "Gabriel",
+    "Felipe",
+    "Matheus",
+    "Rafael",
+    "Gustavo",
+    "Leonardo",
+    "João",
+    "Bruno",
+    "André",
+    "Daniel",
+    "Thiago",
+    "Vinícius",
+    "Carlos"
+]
+
+type RouteParams = {
+    group: string
+}
 
 export function Players() {
-    const [players, setPlayers] = useState([
-        "Lucas",
-        "Miguel",
-        "Gabriel",
-        "Felipe",
-        "Matheus",
-        "Rafael",
-        "Gustavo",
-        "Leonardo",
-        "João",
-        "Bruno",
-        "André",
-        "Daniel",
-        "Thiago",
-        "Vinícius",
-        "Carlos"
-    ])
+    const [players, setPlayers] = useState(initialPlayers)
     const [teamOneIsActive, setTeamOneIsActive] = useState(true)
     const [teamTwoIsActive, setTeamTwoIsActive] = useState(false)
+
+    const route = useRoute()
+
+    const { group } = route.params as RouteParams
 
     return (
         <s.Container>
             <Header showBackButton />
 
             <Highlight
-                title="Nome da turma"
+                title={group}
                 subtitle="adicione a galera e separe os times"
             />
 
