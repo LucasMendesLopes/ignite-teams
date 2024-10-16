@@ -13,7 +13,7 @@ export const NewGroup = () => {
 
                 <CustomInput placeholder="Nome da turma" />
 
-                <CustomButton text="Criar" />
+                <CustomButton text="Criar" style={{ marginTop: 20 }} />
             </s.Content>
         </s.Container>
     )

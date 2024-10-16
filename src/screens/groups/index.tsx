@@ -34,10 +34,17 @@ export function Groups() {
                 data={groups}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => <GroupCard title={item.title} />}
-                contentContainerStyle={groups.length === 0 && { flex: 1 }}
-                style={{ marginBottom: 32 }}
+                contentContainerStyle={[
+                    { gap: 12, paddingBottom: 50 },
+                    groups.length === 0 && { flex: 1 }
+                ]}
+                style={{ marginBottom: 24 }}
                 showsVerticalScrollIndicator={false}
-                ListEmptyComponent={<ListEmpty message="Que tal cadastrar a primeira turma?" />}
+                ListEmptyComponent={() => (
+                    <ListEmpty
+                        message="Que tal cadastrar a primeira turma?"
+                    />
+                )}
             />
 
             <CustomButton text="Criar nova turma" />

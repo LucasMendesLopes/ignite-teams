@@ -7,6 +7,7 @@ import { Header } from "./header";
 import { Highlight } from "./highlight";
 import { ListEmpty } from "./list-empty";
 import { Loading } from "./loading";
+import { PlayerCard } from "./player-card";
 
 export {
   ButtonIcon,
@@ -18,4 +19,5 @@ export {
   Highlight,
   ListEmpty,
   Loading,
+  PlayerCard,
 };

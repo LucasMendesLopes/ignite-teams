@@ -1,10 +1,26 @@
-import { ButtonIcon, CustomInput, Filter, Header, Highlight } from "@components"
+import { ButtonIcon, CustomButton, CustomInput, Filter, Header, Highlight, ListEmpty, PlayerCard } from "@components"
 import * as s from "./styled"
 import { useState } from "react"
-import { FlatList, Text } from "react-native"
+import { FlatList } from "react-native"
 
 export function Players() {
-    const [players, setPlayers] = useState(["Rodrigo", "Diego", "Lucas", "Matheus"])
+    const [players, setPlayers] = useState([
+        "Lucas",
+        "Miguel",
+        "Gabriel",
+        "Felipe",
+        "Matheus",
+        "Rafael",
+        "Gustavo",
+        "Leonardo",
+        "João",
+        "Bruno",
+        "André",
+        "Daniel",
+        "Thiago",
+        "Vinícius",
+        "Carlos"
+    ])
     const [teamOneIsActive, setTeamOneIsActive] = useState(true)
     const [teamTwoIsActive, setTeamTwoIsActive] = useState(false)
 
@@ -61,7 +77,29 @@ export function Players() {
             <FlatList
                 data={players}
                 keyExtractor={item => item}
-                renderItem={({ item }) => <Text>{item}</Text>}
+                renderItem={({ item }) =>
+                    <PlayerCard
+                        name={item}
+                        onRemove={() => { }}
+                    />
+                }
+                style={{ marginTop: 19, marginBottom: 24 }}
+                contentContainerStyle={[
+                    { gap: 12, paddingBottom: 50 },
+                    players.length === 0 && { flex: 1 }
+                ]}
+                showsVerticalScrollIndicator={false}
+                ListEmptyComponent={() => (
+                    <ListEmpty
+                        message="Não há pessoas nesse time."
+                    />
+                )}
+            />
+
+            <CustomButton
+                text="Remover turma"
+                type="SECONDARY"
+                onPress={() => { }}
             />
         </s.Container>
     )
