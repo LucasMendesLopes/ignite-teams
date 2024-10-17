@@ -8,6 +8,7 @@ import { Highlight } from "./highlight";
 import { ListEmpty } from "./list-empty";
 import { Loading } from "./loading";
 import { PlayerCard } from "./player-card";
+import { ToastBase } from "./toast-base";
 
 export {
   ButtonIcon,
@@ -20,4 +21,5 @@ export {
   ListEmpty,
   Loading,
   PlayerCard,
+  ToastBase,
 };

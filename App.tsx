@@ -1,8 +1,7 @@
 import { ThemeProvider } from 'styled-components/native';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto"
 
-
-import { Loading } from '@components';
+import { Loading, ToastBase } from '@components';
 import { StatusBar } from 'react-native';
 import { Routes } from './src/routes';
 import theme from '@theme';
@@ -17,7 +16,9 @@ export default function App() {
         barStyle="light-content"
       />
 
-      {fontsLoaded ? <Routes /> : <Loading />}
+      <ToastBase>
+        {fontsLoaded ? <Routes /> : <Loading />}
+      </ToastBase>
     </ThemeProvider>
   );
 }
