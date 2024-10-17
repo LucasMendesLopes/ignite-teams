@@ -13,30 +13,12 @@ import { useState } from "react"
 import { FlatList } from "react-native"
 import { useRoute } from "@react-navigation/native"
 
-const initialPlayers = [
-    "Lucas",
-    "Miguel",
-    "Gabriel",
-    "Felipe",
-    "Matheus",
-    "Rafael",
-    "Gustavo",
-    "Leonardo",
-    "João",
-    "Bruno",
-    "André",
-    "Daniel",
-    "Thiago",
-    "Vinícius",
-    "Carlos"
-]
-
 type RouteParams = {
     group: string
 }
 
 export function Players() {
-    const [players, setPlayers] = useState(initialPlayers)
+    const [players, setPlayers] = useState<string[]>([])
     const [teamOneIsActive, setTeamOneIsActive] = useState(true)
     const [teamTwoIsActive, setTeamTwoIsActive] = useState(false)
 
