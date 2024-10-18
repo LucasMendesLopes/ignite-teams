@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "igniteteams",
+    "name": "Ignite Teams",
     "slug": "igniteteams",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -19,13 +19,19 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#202024"
       },
-      "softwareKeyboardLayoutMode":"pan"
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.lucas.lopesdev.igniteteams"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "13ff2fed-372d-4f79-9bc2-2a6c5cffb204"
+      }
+    }
   }
 }
