@@ -8,6 +8,7 @@ import {
     Header,
     Highlight,
     ListEmpty,
+    Loading,
     PlayerCard
 } from "@components"
 import * as s from "./styled"
@@ -27,6 +28,7 @@ type RouteParams = {
 type Team = "TIME A" | "TIME B"
 
 export function Players() {
+    const [isLoadingPLayers, setIsLoadingPLayers] = useState(true)
     const [newPlayerName, setNewPlayerName] = useState("")
     const [players, setPlayers] = useState<PlayerStorageDTO[]>([])
     const [teamOneIsActive, setTeamOneIsActive] = useState(true)
@@ -43,6 +45,8 @@ export function Players() {
     const { group } = route.params as RouteParams
 
     async function getPlayersByTeam() {
+        setIsLoadingPLayers(true)
+
         try {
             const data = await playersGetByGroupAndTeam(group, team)
             setPlayers(data)
@@ -50,6 +54,8 @@ export function Players() {
             console.log('error :>> ', error);
             toast.show(`Não foi possível carregar os participantes do ${team}`, { type: "danger" })
         }
+
+        setIsLoadingPLayers(false)
     }
 
     async function handleAddPlayer() {
@@ -174,27 +180,30 @@ export function Players() {
                     </s.NumberOfPlayers>
                 </s.FiltersContainer>
 
-                <FlatList
-                    data={players}
-                    keyExtractor={item => item.name}
-                    renderItem={({ item }) =>
-                        <PlayerCard
-                            name={item.name}
-                            onRemove={() => handleRemovePlayer(item.name)}
-                        />
-                    }
-                    style={{ marginTop: 19, marginBottom: 24 }}
-                    contentContainerStyle={[
-                        { gap: 12, paddingBottom: 50 },
-                        players.length === 0 && { flex: 1 }
-                    ]}
-                    showsVerticalScrollIndicator={false}
-                    ListEmptyComponent={() => (
-                        <ListEmpty
-                            message="Não há pessoas nesse time."
-                        />
-                    )}
-                />
+                {isLoadingPLayers ? <Loading /> : (
+                    <FlatList
+                        data={players}
+                        keyExtractor={item => item.name}
+                        renderItem={({ item }) =>
+                            <PlayerCard
+                                name={item.name}
+                                onRemove={() => handleRemovePlayer(item.name)}
+                            />
+                        }
+                        style={{ marginTop: 19, marginBottom: 24 }}
+                        contentContainerStyle={[
+                            { gap: 12, paddingBottom: 50 },
+                            players.length === 0 && { flex: 1 }
+                        ]}
+                        showsVerticalScrollIndicator={false}
+                        ListEmptyComponent={() => (
+                            <ListEmpty
+                                message="Não há pessoas nesse time."
+                            />
+                        )}
+                    />
+                )}
+
 
                 <CustomButton
                     text="Remover turma"

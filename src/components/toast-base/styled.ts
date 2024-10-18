@@ -7,6 +7,7 @@ export const ToastContainer = styled(ToastProvider).attrs(({ theme }) => ({
     fontSize: theme.FONT_SIZE.MD,
     flexWrap: "wrap",
     textAlign: "left",
+    flex: 1,
   },
 }))`
   width: 100%;

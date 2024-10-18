@@ -18,7 +18,9 @@ export async function playerAddByGroup(
     );
 
     if (playerAlreadyExists.length > 0) {
-      throw new AppError("Esse participante já foi adicionado.");
+      throw new AppError(
+        `Esse participante já foi adicionado em um time aqui.`
+      );
     }
 
     const storage = JSON.stringify([...storedPlayers, newPlayer]);
