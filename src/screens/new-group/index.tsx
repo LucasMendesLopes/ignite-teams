@@ -5,6 +5,7 @@ import * as s from "./styled"
 import { groupCreate } from "@storage/group/groupCreate"
 import { AppError } from "@utils/AppError"
 import { useToast } from "react-native-toast-notifications"
+import { KeyboardAvoidingView } from "react-native"
 
 export const NewGroup = () => {
     const [group, setGroup] = useState("")
@@ -37,22 +38,27 @@ export const NewGroup = () => {
         <s.Container>
             <Header showBackButton />
 
-            <s.Content>
-                <s.Icon />
+            <KeyboardAvoidingView
+                style={{ flex: 1 }}
+                behavior="height"
+            >
+                <s.Content>
+                    <s.Icon />
 
-                <Highlight title="Nova Turma" subtitle="crie uma turma para adicionar pessoas" />
+                    <Highlight title="Nova Turma" subtitle="crie uma turma para adicionar pessoas" />
 
-                <CustomInput
-                    placeholder="Nome da turma"
-                    onChangeText={setGroup}
-                />
+                    <CustomInput
+                        placeholder="Nome da turma"
+                        onChangeText={setGroup}
+                    />
 
-                <CustomButton
-                    text="Criar"
-                    style={{ marginTop: 20 }}
-                    onPress={handleNew}
-                />
-            </s.Content>
+                    <CustomButton
+                        text="Criar"
+                        style={{ marginTop: 20 }}
+                        onPress={handleNew}
+                    />
+                </s.Content>
+            </KeyboardAvoidingView>
         </s.Container>
     )
 }

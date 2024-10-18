@@ -6,6 +6,12 @@ import { StatusBar } from 'react-native';
 import { Routes } from './src/routes';
 import theme from '@theme';
 
+import * as NavigationBar from "expo-navigation-bar";
+
+NavigationBar.setBackgroundColorAsync(theme.COLORS.GRAY_600);
+
+NavigationBar.setButtonStyleAsync("dark");
+
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold })
 

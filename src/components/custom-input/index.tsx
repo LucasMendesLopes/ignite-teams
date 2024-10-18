@@ -1,9 +1,17 @@
-import { TextInputProps } from "react-native"
+import { TextInput, TextInputProps } from "react-native"
 import * as s from "./styled"
+import { RefObject } from "react"
 
-export const CustomInput = ({ ...rest }: TextInputProps) => {
+type Props = TextInputProps & {
+    inputRef?: RefObject<TextInput>
+}
+
+export const CustomInput = ({ inputRef, ...rest }: Props) => {
     return (
-        <s.Container {...rest}>
+        <s.Container
+            ref={inputRef}
+            {...rest}
+        >
 
         </s.Container>
     )
