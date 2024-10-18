@@ -28,9 +28,9 @@ export function Groups() {
         } catch (error) {
             console.log('error :>> ', error);
             toast.show("Não foi possível carregar as turmas.", { type: "danger" })
+        } finally {
+            setIsLoadingGroups(false)
         }
-
-        setIsLoadingGroups(false)
     }
 
     function handleOpenGroup(group: string) {

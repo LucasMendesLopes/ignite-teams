@@ -53,16 +53,16 @@ export function Players() {
         } catch (error) {
             console.log('error :>> ', error);
             toast.show(`Não foi possível carregar os participantes do ${team}`, { type: "danger" })
+        } finally {
+            setIsLoadingPLayers(false)
         }
-
-        setIsLoadingPLayers(false)
     }
 
     async function handleAddPlayer() {
         const formatedNewPlayerName = newPlayerName.trim()
 
         const newPlayer = {
-            name: newPlayerName,
+            name: formatedNewPlayerName,
             team
         }
 
